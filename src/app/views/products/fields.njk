@@ -13,14 +13,14 @@
 <div class="item">
     <div>Título do anúncio</div>
     <div>
-        <input type="text" name="name" value="{{ product.name }}">
+        <input type="text" name="name" value="{{ product.name }}" placeholder="Título para seu anúncio" >
     </div>
 </div>
 
 <div class="item">
     <div>Descrição</div>
     <div>
-        <textarea name="description">{{product.description}}</textarea>
+        <textarea name="description" placeholder="Descreva seu produto" >{{product.description}}</textarea>
     </div>
 </div>
 
@@ -57,7 +57,7 @@
 <div class="item">
     <div>Valor</div>
     <div>
-        <input type="text" name="price" value="{{ product.price }}" onkeydown="Mask.apply(this, 'formatBRL')">
+        <input type="text" name="price" value="{{ product.price }}" placeholder="R$ 0,00" onkeydown="Mask.apply(this, 'formatBRL')">
     </div>
     {% if product.old_price %}
         <input type="hidden" name="old_price" value="{{ product.old_price }}">
@@ -67,7 +67,7 @@
 <div class="item">
     <div>Quantidade</div>
     <div>
-        <input type="number" name="quantity" value="{{ product.quantity }}">
+        <input type="number" name="quantity" placeholder="Quantidade do produto"value="{{ product.quantity }}">
     </div>
 </div>
 

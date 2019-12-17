@@ -169,6 +169,7 @@ form .item > div:nth-child(1) {
     margin-bottom: 8px;
 }
 
+form .item .input input,
 form .item input[type="text"],
 form .item input[type="number"],
 form .item textarea,
@@ -480,4 +481,15 @@ form .item #photos-preview img {
 .search-products nav ul li a:hover {
     color: #333;
     font-weight: bold;
+}
+
+.user-register.container.form{
+    max-width: 500px;
+}
+
+.input .error {
+    background-color: #e74c3c;
+    padding: 4px;
+    border-radius: 4px;
+    color: white;
 }
