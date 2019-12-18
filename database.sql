@@ -33,7 +33,6 @@ ALTER TABLE "files" ADD FOREIGN KEY ("product_id") REFERENCES "products" ("id");
 
 CREATE TABLE "users" (
   "id" SERIAL PRIMARY KEY,
-  "user_id" int,
   "name" text NOT NULL,
   "email" text UNIQUE NOT NULL,
   "password" text NOT NULL,
@@ -43,6 +42,15 @@ CREATE TABLE "users" (
   "created_at" timestamp DEFAULT (now()),
   "updated_at" timestamp DEFAULT (now())
 );
+
+CREATE TABLE "session" (
+  "sid" varchar NOT NULL COLLATE "default",
+	"sess" json NOT NULL,
+	"expire" timestamp(6) NOT NULL
+)
+WITH (OIDS=FALSE);
+
+ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE "products" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
