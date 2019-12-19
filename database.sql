@@ -75,3 +75,6 @@ EXECUTE PROCEDURE trigger_set_timestamp();
 INSERT INTO categories(name) VALUES ('Literatura');
 INSERT INTO categories(name) VALUES ('Jogos');
 INSERT INTO categories(name) VALUES ('Música');
+
+ALTER TABLE "users" ADD COLUMN reset_token text;
+ALTER TABLE "users" ADD COLUMN reset_token_expires text;

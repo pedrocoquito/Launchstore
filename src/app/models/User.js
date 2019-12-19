@@ -50,7 +50,7 @@ module.exports = {
         }
 
     },
-    async update(id, { fields }) {
+    async update(id, fields) {
         let query = "UPDATE users SET"
 
         Object.keys(fields).map((key, index, array) => {
