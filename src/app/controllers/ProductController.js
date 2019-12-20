@@ -29,6 +29,7 @@ module.exports = {
             return res.send("Pelo menos uma imagem deve ser cadastrada!")
         }
 
+        req.body.user_id = req.session.userId
         let results = await Product.create(req.body)
         const productId = results.rows[0].id
 

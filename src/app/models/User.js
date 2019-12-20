@@ -1,6 +1,9 @@
 const db = require('../../config/db')
 const { hash } = require('bcryptjs')
 
+const Product = require('../models/Product')
+const fs = require('fs')
+
 module.exports = {
     async findOne(filters) {
         let query = "SELECT * FROM users"
@@ -67,5 +70,20 @@ module.exports = {
         await db.query(query)
 
         return
+    },
+    async delete(id) {
+        let results = await db.query("SELECT * FROM products WHERE user_id = $1", [id])
+        const products = results.rows
+
+        const allFilesPromisse = products.map(product =>
+            Product.files(product.id))
+
+        let promisseResults = await Promise.all(allFilesPromisse)
+
+        await db.query('DELETE FROM users WHERE id = $1', [id])
+
+        promisseResults.map(results => {
+            results.rows.map(file => fs.unlinkSync(file.path))
+        })
     }
 }

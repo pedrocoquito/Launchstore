@@ -15,13 +15,13 @@ routes.post('/logout', SessionController.logout)
 
 routes.get('/forgot-password', SessionController.forgotForm)
 routes.post('/forgot-password', SessionValidator.forgot, SessionController.forgot)
-/*routes.get('/password-reset', SessionController.resetForm)
-routes.post('/password-reset', SessionController.reset)*/
+routes.get('/password-reset', SessionController.resetForm)
+routes.post('/password-reset', SessionValidator.reset, SessionController.reset)
 
 routes.get('/register', UserController.registerForm)
 routes.post('/register', UserValidator.post, UserController.post)
 routes.get('/', onlyUsers, UserValidator.show, UserController.show)
 routes.put('/', UserValidator.update, UserController.update)
-//routes.delete('/register', UserController.delete)
+routes.delete('/', UserController.delete)
 
 module.exports = routes
