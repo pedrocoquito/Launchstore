@@ -1,0 +1,28 @@
+const faker = require('faker')
+const { hash } = require('bcryptjs')
+
+const User = require('./src/app/models/User')
+
+let usersIds = []
+
+async function createUsers() {
+    const users = []
+    const password = await hash('1234', 8)
+
+    while (users.length < 3) {
+        users.push({
+            name: faker.name.firstName(),
+            email: faker.internet.email(),
+            password,
+            cpf_cnpj: faker.random.number(99999999999),
+            address: faker.random.number(99999999),
+            cep: faker.address.streetName(),
+        })
+    }
+
+    const usersPromisse = users.map(user => User.create(user))
+
+    usersIds = await Promise.all(usersPromisse)
+}
+
+createUsers()
