@@ -481,10 +481,6 @@ form .item #photos-preview img {
     font-weight: bold;
 }
 
-.user-register.container.form{
-    max-width: 500px;
-}
-
 .input .error {
     background-color: #e74c3c;
     padding: 4px;
