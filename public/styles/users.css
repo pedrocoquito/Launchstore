@@ -8,14 +8,14 @@
 
 .users-ads .items {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(4,1fr);
     grid-gap: 32px;
     padding: 16px 0;
 }
 
 .users-ads .item {
     display: grid;
-    grid-template-columns: 116px 1fr;
+    grid-template-columns: 100px 1fr;
     align-items: start;
     color: #444;
 }
