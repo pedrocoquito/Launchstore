@@ -279,6 +279,14 @@ form .item #photos-preview img {
     border-radius: 4px;
 }
 
+.product-single .unavailable {
+    font-size: 14px;
+    color: #ccc;
+    font-weight: bold;
+    background: #eee;
+    padding: 8px 16px;
+}
+
 .product-single .gallery {
     width: 100%;
 }
